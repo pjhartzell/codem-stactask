@@ -1,0 +1,5 @@
+name: codem-stactask
+channels:
+  - conda-forge
+dependencies:
+  - codem

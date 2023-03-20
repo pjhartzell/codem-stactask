@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codem-stactask"
+version = "0.1.0"
+description = "STAC Task for CODEM"
+readme = "README.md"
+license = {file =  "LICENSE"}
+authors = [
+    {name = "Preston Hartzell", email = "preston.hartzell@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10"
+]
+dependencies = [
+    "stactask",
+    "stactools"
+]
+
+[project.urls]
+repository = "https://github.com/pjhartzell/codem-stactask"
+issues = "https://github.com/pjhartzell/codem-stactask/issues"
+
+[project.scripts]
+codem-stactask = "codem_stactask.coreg:main"
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+strict = true

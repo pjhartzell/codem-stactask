@@ -1,0 +1,74 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "stac_version": "1.0.0",
+            "id": "1_smallAOI",
+            "properties": {
+                "datetime": "2023-03-18T23:46:30.829673Z"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -85.53134030612397,
+                            39.04909431206562
+                        ],
+                        [
+                            -85.52942545908574,
+                            39.0490701794048
+                        ],
+                        [
+                            -85.52940654103529,
+                            39.049982270308774
+                        ],
+                        [
+                            -85.53132141268526,
+                            39.050006403749755
+                        ],
+                        [
+                            -85.53134030612397,
+                            39.04909431206562
+                        ]
+                    ]
+                ]
+            },
+            "links": [],
+            "assets": {
+                "data": {
+                    "href": "/Users/pjh/dev/codem-stactask/tests/data-files/small/1_smallAOI.tif",
+                    "roles": []
+                }
+            },
+            "bbox": [
+                -85.53134030612397,
+                39.0490701794048,
+                -85.52940654103529,
+                39.050006403749755
+            ],
+            "stac_extensions": [],
+            "collection": "not-registered"
+        }
+    ],
+    "process": {
+        "description": "Registers assets to foundation data",
+        "upload_options": {
+            "collections": {
+                "registered": "$[?(@.id =~ '.*')]"
+            }
+        },
+        "tasks": [
+            {
+                "name": "codem-coreg",
+                "parameters": {
+                    "foundation_href": "/Users/pjh/dev/codem-stactask/tests/data-files/small/0_smallfnd.tif",
+                    "asset": "data",
+                    "output_href": "examples/output",
+                    "solve_scale": true
+                }
+            }
+        ]
+    }
+}

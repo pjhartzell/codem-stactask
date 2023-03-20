@@ -1,0 +1,44 @@
+DSM FEATURE REGISTRATION
+------------------------
+Transformation matrix: 
+ [[ 9.67654666e-01  2.58628719e-01 -2.46875407e-02 -1.09770052e+06]
+ [-2.59069571e-01  9.67707013e-01 -1.67312946e-02  3.02200223e+05]
+ [ 1.95255250e-02  2.25425100e-02  1.00148112e+00 -1.09740755e+05]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+Transformation Parameters:
+Omega = 1.289 degrees
+Phi = -1.117 degrees
+Kappa = -14.988 degrees
+X Translation = -1097700.519
+Y Translation = 302200.223
+Z Translation = -109740.755
+Scale = 1.001925
+Number of pairs = 48
+RMSEs:
+X = +/-1.540,
+Y = +/-1.951,
+Z = +/-2.753,
+3D = +/-3.709
+
+ICP REGISTRATION
+----------------
+Transformation matrix: 
+ [[ 9.57228329e-01  2.59334784e-01 -9.89644113e-03 -1.09421719e+06]
+ [-2.59258379e-01  9.57263985e-01  8.32458076e-03  3.47460468e+05]
+ [ 1.17287051e-02 -5.44753786e-03  9.91701218e-01  1.61611827e+04]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+Transformation Parameters:
+Omega = -0.315 degrees
+Phi = -0.678 degrees
+Kappa = -15.155 degrees
+X Translation = -1094217.191
+Y Translation = 347460.468
+Z Translation = 16161.183
+Scale = 0.991786
+Number of pairs = 62170
+RMSEs:
+X = +/-0.425,
+Y = +/-0.510,
+Z = +/-0.609,
+3D = +/-0.901
+
