@@ -2,4 +2,8 @@ name: codem-stactask
 channels:
   - conda-forge
 dependencies:
-  - codem
+  - codem==0.25.0
+  - stactools==0.4.4
+  - pip
+  - pip:
+    - stactask==0.1.0

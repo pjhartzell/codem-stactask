@@ -17,9 +17,16 @@ pip install -r requirements-dev.txt
 codem-stactask run --output examples/output/output-payload.json examples/input/input-payload.json
 ```
 
+## Input payload
+
+- The `features` list must contain a single AOI Item and a single foundation Item.
+- Both Items must contain:
+  - a `collection` field
+  - a self `link`
+  - a `codem:role` property, which must be "aoi" for the AOI Item and "fnd" for the foundation Item
+
 ## TaskConfig parameters
 
-- `foundation_href`: HREF to registration foundation data file. [Required]
-- `asset`:  Key to STAC Item Asset to register. [Required]
-- `output_href`: A hack to move the CODEM output files to the same location specified by the `--output` option. Would be nice if the `--output` option was saved in `kwargs`, rather than popped off. [Required]
-- `solve_scale`: One of many possible CODEM parameters. [Optional]
+- `fnd_asset`: Foundation data asset key.
+- `aoi_asset`: AOI data asset key.
+- Optional codem parameters, e.g., `"codem:solve_scale": True`

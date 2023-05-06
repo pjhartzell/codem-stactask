@@ -6,55 +6,154 @@
             "stac_version": "1.0.0",
             "id": "1_smallAOI",
             "properties": {
-                "datetime": "2023-03-18T23:46:30.829673Z"
+                "proj:epsg": 32616,
+                "proj:transform": [
+                    0.25,
+                    0.0,
+                    627088.79,
+                    0.0,
+                    -0.25,
+                    4323352.17
+                ],
+                "proj:shape": [
+                    405,
+                    663
+                ],
+                "datetime": "2023-04-29T09:08:32.559650Z",
+                "codem:role": "aoi"
             },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -85.53134030612397,
-                            39.04909431206562
+                            -85.529425,
+                            39.04907
                         ],
                         [
-                            -85.52942545908574,
-                            39.0490701794048
+                            -85.529407,
+                            39.049982
                         ],
                         [
-                            -85.52940654103529,
-                            39.049982270308774
+                            -85.531321,
+                            39.050006
                         ],
                         [
-                            -85.53132141268526,
-                            39.050006403749755
+                            -85.53134,
+                            39.049094
                         ],
                         [
-                            -85.53134030612397,
-                            39.04909431206562
+                            -85.529425,
+                            39.04907
                         ]
                     ]
                 ]
             },
-            "links": [],
+            "links": [
+                {
+                    "rel": "self",
+                    "href": "/Users/pjh/dev/codem/codem-stactask/tests/data-files/small/1_smallAOI.json",
+                    "type": "application/geo+json"
+                }
+            ],
             "assets": {
                 "data": {
-                    "href": "/Users/pjh/dev/codem-stactask/tests/data-files/small/1_smallAOI.tif",
-                    "roles": []
+                    "href": "s3://codem-stactask-input/1_smallAOI.tif",
+                    "roles": [
+                        "data"
+                    ]
                 }
             },
             "bbox": [
-                -85.53134030612397,
-                39.0490701794048,
-                -85.52940654103529,
-                39.050006403749755
+                -85.53134,
+                39.04907,
+                -85.529407,
+                39.050006
             ],
-            "stac_extensions": [],
-            "collection": "not-registered"
+            "stac_extensions": [
+                "https://stac-extensions.github.io/projection/v1.1.0/schema.json"
+            ],
+            "collection": "aoi"
+        },
+        {
+            "type": "Feature",
+            "stac_version": "1.0.0",
+            "id": "0_smallfnd",
+            "properties": {
+                "proj:epsg": 32616,
+                "proj:transform": [
+                    0.5,
+                    0.0,
+                    627196.5,
+                    0.0,
+                    -0.5,
+                    4323508.0
+                ],
+                "proj:shape": [
+                    301,
+                    502
+                ],
+                "datetime": "2023-04-29T09:07:04.910364Z",
+                "codem:role": "fnd"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -85.527176,
+                            39.050002
+                        ],
+                        [
+                            -85.527148,
+                            39.051358
+                        ],
+                        [
+                            -85.530048,
+                            39.051394
+                        ],
+                        [
+                            -85.530076,
+                            39.050039
+                        ],
+                        [
+                            -85.527176,
+                            39.050002
+                        ]
+                    ]
+                ]
+            },
+            "links": [
+                {
+                    "rel": "self",
+                    "href": "/Users/pjh/dev/codem/codem-stactask/tests/data-files/small/0_smallfnd.json",
+                    "type": "application/geo+json"
+                }
+            ],
+            "assets": {
+                "data": {
+                    "href": "s3://codem-stactask-input/0_smallfnd.tif",
+                    "roles": [
+                        "data"
+                    ]
+                }
+            },
+            "bbox": [
+                -85.530076,
+                39.050002,
+                -85.527148,
+                39.051394
+            ],
+            "stac_extensions": [
+                "https://stac-extensions.github.io/projection/v1.1.0/schema.json"
+            ],
+            "collection": "fnd"
         }
     ],
     "process": {
         "description": "Registers assets to foundation data",
         "upload_options": {
+            "path_template": "s3://codem-stactask-output/${collection}/${id}",
             "collections": {
                 "registered": "$[?(@.id =~ '.*')]"
             }
@@ -63,10 +162,9 @@
             {
                 "name": "codem-coreg",
                 "parameters": {
-                    "foundation_href": "/Users/pjh/dev/codem-stactask/tests/data-files/small/0_smallfnd.tif",
-                    "asset": "data",
-                    "output_href": "examples/output",
-                    "solve_scale": true
+                    "fnd_asset": "data",
+                    "aoi_asset": "data",
+                    "codem:solve_scale": true
                 }
             }
         ]
